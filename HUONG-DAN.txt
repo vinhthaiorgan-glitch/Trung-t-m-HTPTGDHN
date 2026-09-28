@@ -1,0 +1,13 @@
+CÀI APP TRUNG TÂM (PWA)
+
+1) Đưa cả thư mục này lên một trang web HTTPS (bắt buộc HTTPS, trừ khi chạy thử ở localhost):
+   - Miễn phí: GitHub Pages, Cloudflare Pages, Netlify (kéo thả thư mục).
+   - Hoặc máy chủ/hosting của Trung tâm: chép toàn bộ file vào một thư mục web.
+   Chạy thử trên máy: mở terminal trong thư mục, gõ "python3 -m http.server 8000", rồi vào http://localhost:8000
+
+2) Cài lên thiết bị:
+   - Android (Chrome): menu ⋮ > "Cài đặt ứng dụng" / "Thêm vào màn hình chính".
+   - iPhone/iPad (Safari): nút Chia sẻ > "Thêm vào MH chính".
+   - Laptop (Chrome/Edge): bấm biểu tượng cài đặt ở cuối thanh địa chỉ > "Cài đặt".
+
+Lưu ý: bản này lưu dữ liệu ngay trên từng thiết bị; muốn nhiều người dùng chung dữ liệu cần thêm máy chủ và cơ sở dữ liệu.

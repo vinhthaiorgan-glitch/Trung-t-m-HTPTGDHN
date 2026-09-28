@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b2f7b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Trung tâm Hòa Nhập – Quản lý nội bộ (bản mẫu)</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#18213d;--mut:#5a6480;--line:#d6dcee;--pri:#1b2f7b;--pri2:#e5e9f7;--warn:#b7791f;--bad:#b3392f;--ok:#1e7a4a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1424;--card:#171e35;--ink:#e8ebf6;--mut:#9aa4c4;--line:#2b3556;--pri:#9db1ff;--pri2:#212b52;--warn:#e0a94a;--bad:#ef7a6f;--ok:#5fd190}}
+:root[data-theme="dark"]{--bg:#0f1424;--card:#171e35;--ink:#e8ebf6;--mut:#9aa4c4;--line:#2b3556;--pri:#9db1ff;--pri2:#212b52;--warn:#e0a94a;--bad:#ef7a6f;--ok:#5fd190}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Be Vietnam Pro",system-ui,sans-serif}
+header{padding:18px 16px 0;max-width:980px;margin:auto}
+h1{font-size:20px;margin:0 0 2px}header p{margin:0;color:var(--mut);font-size:13px}
+.top{display:flex;gap:12px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap}
+label{display:block;font-size:12px;color:var(--mut);margin-bottom:3px}
+select,input,textarea,button{font:inherit;color:var(--ink)}
+select,input,textarea{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+nav{display:flex;gap:4px;margin:14px 0 0;border-bottom:1px solid var(--line)}
+nav button{background:none;border:0;padding:10px 14px;cursor:pointer;color:var(--mut);border-bottom:3px solid transparent;font-weight:500}
+nav button[aria-selected=true]{color:var(--pri);border-color:var(--pri);font-weight:700}
+main{max-width:980px;margin:auto;padding:16px}
+.grid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:16px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.card h2{font-size:15px;margin:0 0 10px}
+.f{margin-bottom:10px}.row{display:flex;gap:8px}.row>*{flex:1}
+.btn{background:var(--pri);color:#fff;border:0;border-radius:8px;padding:9px 14px;cursor:pointer;font-weight:700}
+:root[data-theme="dark"] .btn{color:#0b1230}
+.btn.s{padding:5px 10px;font-size:13px}.btn.g{background:var(--pri2);color:var(--pri)}.btn.r{background:var(--bad);color:#fff}
+button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
+.item{border-bottom:1px solid var(--line);padding:10px 0}.item:last-child{border:0}
+.item b{display:block}.mut{color:var(--mut);font-size:13px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:1px 8px;border-radius:99px;background:var(--pri2)}
+.tag.w{color:var(--warn)}.tag.o{color:var(--ok)}.tag.b{color:var(--bad)}
+.acts{margin-top:6px;display:flex;gap:6px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{border:1px solid var(--line);padding:6px;font-size:13px;text-align:left;vertical-align:top;height:46px}
+th{background:var(--pri2);font-weight:700}
+td .c{background:var(--pri2);border-radius:6px;padding:3px 6px}td .c.x{background:transparent;border:1px dashed var(--bad);color:var(--bad)}
+.f select{margin:0}.msg{margin-top:8px;font-size:13px;min-height:18px}.msg.e{color:var(--bad)}.msg.k{color:var(--ok)}
+.empty{color:var(--mut);padding:14px 0}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header>
+ <div class="top">
+  <div style="display:flex;gap:12px;align-items:center"><img src="data:image/jpeg;base64,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" alt="Logo Trung tâm" width="52" height="52" style="border-radius:50%;flex:none"><div><h1>Trung tâm Hỗ trợ Phát triển Giáo dục Hòa Nhập</h1><p>Quản lý nội bộ · bản mẫu, dữ liệu chỉ lưu trên trình duyệt này</p></div></div>
+  <div style="min-width:200px"><label for="role">Đang đăng nhập với vai trò</label>
+   <select id="role"><option value="gv">Giáo viên</option><option value="tp">Trưởng phòng</option><option value="gd">Giám đốc</option></select></div>
+ </div>
+ <nav role="tablist" id="tabs">
+  <button role="tab" data-t="leave" aria-selected="true">Xin nghỉ phép</button>
+  <button role="tab" data-t="room" aria-selected="false">Đặt sân bãi</button>
+  <button role="tab" data-t="tt" aria-selected="false">Thời khóa biểu</button>
+  <button role="tab" data-t="att" aria-selected="false">Điểm danh</button>
+  <button role="tab" data-t="ev" aria-selected="false">Đánh giá tiết dạy</button>
+ </nav>
+</header>
+<main>
+<section id="leave" class="grid">
+ <div class="card"><h2>Gửi đơn xin nghỉ</h2>
+  <div class="f"><label for="l-who">Người xin nghỉ</label><select id="l-who"></select></div>
+  <div class="f"><label for="l-type">Loại nghỉ</label><select id="l-type"><option>Nghỉ phép năm</option><option>Nghỉ ốm</option><option>Nghỉ việc riêng</option></select></div>
+  <div class="row f"><div><label for="l-from">Từ ngày</label><input type="date" id="l-from"></div><div><label for="l-to">Đến ngày</label><input type="date" id="l-to"></div></div>
+  <div class="f"><label for="l-why">Lý do</label><textarea id="l-why" rows="2"></textarea></div>
+  <button class="btn" id="l-send">Gửi đơn</button><div class="msg" id="l-msg"></div></div>
+ <div class="card"><h2>Danh sách đơn</h2><div id="l-list"></div></div>
+</section>
+<section id="room" class="grid" hidden>
+ <div class="card"><h2>Đăng ký sân bãi, phòng hoạt động</h2>
+  <div class="f"><label for="r-who">Giáo viên đăng ký</label><select id="r-who"></select></div>
+  <div class="f"><label for="r-fac">Địa điểm</label><select id="r-fac"></select></div>
+  <div class="row f"><div><label for="r-date">Ngày</label><input type="date" id="r-date"></div><div><label for="r-slot">Khung giờ</label><select id="r-slot"></select></div></div>
+  <div class="f"><label for="r-why">Nội dung hoạt động nhóm</label><input id="r-why"></div>
+  <button class="btn" id="r-send">Đăng ký</button><div class="msg" id="r-msg"></div></div>
+ <div class="card"><h2>Lịch sử dụng ngày <span id="r-day"></span></h2><div class="scroll" id="r-grid"></div><div id="r-list"></div></div>
+</section>
+<section id="tt" class="grid" hidden>
+ <div class="card"><h2>Thêm tiết vào thời khóa biểu</h2>
+  <div class="f"><label for="t-who">Giáo viên</label><select id="t-who"></select></div>
+  <div class="row f"><div><label for="t-day">Thứ</label><select id="t-day"></select></div><div><label for="t-slot">Tiết</label><select id="t-slot"></select></div></div>
+  <div class="f"><label for="t-grp">Học sinh / nhóm</label><input id="t-grp" placeholder="VD: Nhóm 3 – Ngôn ngữ"></div>
+  <div class="f"><label for="t-room">Phòng</label><select id="t-room"></select></div>
+  <button class="btn" id="t-send">Thêm tiết</button><div class="msg" id="t-msg"></div></div>
+ <div class="card"><div class="row" style="align-items:end;margin-bottom:10px"><h2 style="margin:0">Thời khóa biểu tuần</h2><div><label for="t-view">Xem theo giáo viên</label><select id="t-view"></select></div></div><div class="scroll" id="t-grid"></div></div>
+</section>
+<section id="att" hidden>
+ <div class="card"><div class="row" style="align-items:end;margin-bottom:10px"><div><label for="a-mode">Đối tượng</label><select id="a-mode"><option value="gv">Giáo viên</option><option value="hs">Học sinh</option></select></div><div><label for="a-date">Ngày</label><input type="date" id="a-date"></div><div id="a-sum" class="mut" style="align-self:center"></div></div>
+ <div class="scroll"><table id="a-tab"></table></div><div class="msg" id="a-msg"></div></div>
+</section>
+<section id="ev" class="grid" hidden>
+ <div class="card"><h2>Phiếu đánh giá tiết dạy</h2>
+  <div class="f"><label for="e-by">Người dự giờ</label><select id="e-by"></select></div>
+  <div class="f"><label for="e-who">Giáo viên được dự</label><select id="e-who"></select></div>
+  <div class="row f"><div><label for="e-date">Ngày</label><input type="date" id="e-date"></div><div><label for="e-slot">Tiết</label><select id="e-slot"></select></div></div>
+  <div class="f"><label for="e-grp">Học sinh / nhóm</label><input id="e-grp"></div>
+  <div id="e-crit"></div>
+  <div class="f"><label for="e-note">Nhận xét, góp ý</label><textarea id="e-note" rows="2"></textarea></div>
+  <button class="btn" id="e-send">Lưu phiếu</button><div class="msg" id="e-msg"></div></div>
+ <div class="card"><h2>Các phiếu đã lưu</h2><div id="e-list"></div></div>
+</section>
+</main>
+<script>
+const TEACHERS=["Nguyễn Thị Lan","Trần Văn Minh","Lê Thị Hoa","Phạm Quốc Bảo","Võ Ngọc Anh"];
+const FACS=["Sân chơi ngoài trời","Phòng vận động","Phòng âm nhạc","Phòng hoạt động nhóm 1","Phòng giác quan"];
+const SLOTS=["7:30–8:30","8:30–9:30","9:45–10:45","14:00–15:00","15:00–16:00"];
+const DAYS=["Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6"];
+const ST={tp:["Chờ trưởng phòng duyệt","w"],gd:["Chờ giám đốc duyệt","w"],ok:["Đã duyệt","o"],no:["Từ chối","b"]};
+const today=new Date().toISOString().slice(0,10);
+const seed=()=>({leave:[{id:1,who:TEACHERS[1],type:"Nghỉ ốm",from:today,to:today,why:"Khám bệnh",st:"tp"}],
+ book:[{id:1,who:TEACHERS[0],fac:FACS[1],date:today,slot:0,why:"Vận động thô nhóm 2"}],
+ tt:[{id:1,who:TEACHERS[0],day:0,slot:0,grp:"Nhóm 2 – Vận động",room:FACS[1]},{id:2,who:TEACHERS[0],day:2,slot:1,grp:"Bé An – Can thiệp cá nhân",room:FACS[4]},{id:3,who:TEACHERS[1],day:0,slot:0,grp:"Nhóm 1 – Ngôn ngữ",room:FACS[3]}]});
+let db;try{db=JSON.parse(localStorage.getItem("ttapp"))}catch(e){}
+if(!db||!db.leave)db=seed();
+const save=()=>{try{localStorage.setItem("ttapp",JSON.stringify(db))}catch(e){}};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const opts=(el,arr)=>{el.innerHTML=arr.map((v,i)=>`<option value="${i}">${esc(v)}</option>`).join("")};
+const optv=(el,arr)=>{el.innerHTML=arr.map(v=>`<option>${esc(v)}</option>`).join("")};
+const msg=(id,t,ok)=>{const m=$(id);m.textContent=t;m.className="msg "+(ok?"k":"e")};
+const fmt=d=>d.split("-").reverse().join("/");
+["l-who","r-who","t-who","t-view"].forEach(i=>optv($(i),TEACHERS));
+optv($("r-fac"),FACS);optv($("t-room"),FACS);opts($("r-slot"),SLOTS);opts($("t-slot"),SLOTS);opts($("t-day"),DAYS);
+["l-from","l-to","r-date"].forEach(i=>$(i).value=today);
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{
+ document.querySelectorAll("#tabs button").forEach(x=>x.setAttribute("aria-selected",x===b));
+ ["leave","room","tt","att","ev"].forEach(s=>$(s).hidden=s!==b.dataset.t);});
+function renderLeave(){
+ const role=$("role").value,L=db.leave.slice().reverse();
+ $("l-list").innerHTML=L.length?L.map(x=>{const s=ST[x.st];
+  const can=(x.st==="tp"&&role==="tp")||(x.st==="gd"&&role==="gd");
+  return `<div class="item"><b>${esc(x.who)} · ${esc(x.type)}</b><span class="mut">${fmt(x.from)} – ${fmt(x.to)} · ${esc(x.why||"Không ghi lý do")}</span><div><span class="tag ${s[1]}">${s[0]}</span></div>
+  ${can?`<div class="acts"><button class="btn s" data-a="ok" data-id="${x.id}">Duyệt</button><button class="btn s r" data-a="no" data-id="${x.id}">Từ chối</button></div>`:""}</div>`}).join(""):`<div class="empty">Chưa có đơn nào. Gửi đơn ở khung bên trái.</div>`;
+}
+$("l-send").onclick=()=>{
+ const f=$("l-from").value,t=$("l-to").value;
+ if(!f||!t||t<f)return msg("l-msg","Ngày kết thúc phải sau hoặc bằng ngày bắt đầu.");
+ db.leave.push({id:Date.now(),who:$("l-who").value,type:$("l-type").value,from:f,to:t,why:$("l-why").value.trim(),st:"tp"});
+ save();$("l-why").value="";msg("l-msg","Đã gửi đơn, đang chờ trưởng phòng duyệt.",1);renderLeave();};
+$("l-list").onclick=e=>{const b=e.target.closest("button[data-a]");if(!b)return;
+ const x=db.leave.find(v=>v.id==b.dataset.id);
+ x.st=b.dataset.a==="no"?"no":(x.st==="tp"?"gd":"ok");save();renderLeave();};
+$("role").onchange=renderLeave;
+function renderRoom(){
+ const d=$("r-date").value;$("r-day").textContent=d?fmt(d):"";
+ const B=db.book.filter(b=>b.date===d);
+ let h="<table><tr><th>Địa điểm</th>"+SLOTS.map(s=>`<th>${s}</th>`).join("")+"</tr>";
+ FACS.forEach(f=>{h+=`<tr><th>${esc(f)}</th>`+SLOTS.map((_,i)=>{const b=B.find(v=>v.fac===f&&v.slot===i);
+  return `<td>${b?`<div class="c">${esc(b.who)}<br><span class="mut">${esc(b.why)}</span></div>`:""}</td>`}).join("")+"</tr>"});
+ $("r-grid").innerHTML=h+"</table>";
+ $("r-list").innerHTML=B.length?"":`<div class="empty">Ngày này chưa có ai đăng ký.</div>`;
+}
+$("r-date").onchange=renderRoom;
+$("r-send").onclick=()=>{
+ const d=$("r-date").value,f=$("r-fac").value,s=+$("r-slot").value;
+ if(!d)return msg("r-msg","Hãy chọn ngày.");
+ const c=db.book.find(b=>b.date===d&&b.fac===f&&b.slot===s);
+ if(c)return msg("r-msg",`Trùng lịch: ${c.who} đã đăng ký ${f} khung ${SLOTS[s]}.`);
+ db.book.push({id:Date.now(),who:$("r-who").value,fac:f,date:d,slot:s,why:$("r-why").value.trim()||"Hoạt động nhóm"});
+ save();msg("r-msg","Đăng ký thành công.",1);renderRoom();};
+function renderTT(){
+ const w=$("t-view").value,T=db.tt.filter(x=>x.who===w);
+ let h="<table><tr><th>Tiết</th>"+DAYS.map(d=>`<th>${d}</th>`).join("")+"</tr>";
+ SLOTS.forEach((s,i)=>{h+=`<tr><th>${s}</th>`+DAYS.map((_,j)=>{const x=T.find(v=>v.day===j&&v.slot===i);
+  return `<td>${x?`<div class="c">${esc(x.grp)}<br><span class="mut">${esc(x.room)}</span> <button class="btn s g" data-del="${x.id}" aria-label="Xóa tiết">Xóa</button></div>`:""}</td>`}).join("")+"</tr>"});
+ $("t-grid").innerHTML=h+"</table>";
+}
+$("t-view").onchange=renderTT;
+$("t-grid").onclick=e=>{const b=e.target.closest("[data-del]");if(!b)return;db.tt=db.tt.filter(x=>x.id!=b.dataset.del);save();renderTT();};
+$("t-send").onclick=()=>{
+ const who=$("t-who").value,day=+$("t-day").value,slot=+$("t-slot").value,room=$("t-room").value,grp=$("t-grp").value.trim();
+ if(!grp)return msg("t-msg","Hãy nhập học sinh hoặc nhóm.");
+ const a=db.tt.find(x=>x.who===who&&x.day===day&&x.slot===slot);
+ if(a)return msg("t-msg",`Giáo viên đã có tiết "${a.grp}" vào ${DAYS[day]}, ${SLOTS[slot]}.`);
+ const b=db.tt.find(x=>x.room===room&&x.day===day&&x.slot===slot);
+ if(b)return msg("t-msg",`${room} đã được ${b.who} dùng vào ${DAYS[day]}, ${SLOTS[slot]}.`);
+ db.tt.push({id:Date.now(),who,day,slot,grp,room});save();$("t-grp").value="";
+ $("t-view").value=who;msg("t-msg","Đã thêm tiết.",1);renderTT();};
+db.att=db.att||[];db.ev=db.ev||[];
+const STUDENTS=["Bé An","Bé Bình","Bé Chi","Bé Dũng","Bé Hân","Bé Khang"];
+const CRIT=["Mục tiêu phù hợp năng lực học sinh","Phương pháp và đồ dùng hỗ trợ","Cá nhân hóa hỗ trợ từng em","Tổ chức lớp, tương tác","Ghi nhận tiến bộ của học sinh"];
+$("a-date").value=today;$("e-date").value=today;optv($("e-by"),TEACHERS);optv($("e-who"),TEACHERS);opts($("e-slot"),SLOTS);
+$("e-crit").innerHTML=CRIT.map((c,i)=>`<div class="f"><label for="c${i}">${c}</label><select id="c${i}">${[5,4,3,2,1].map(n=>`<option value="${n}"${n==4?" selected":""}>${n} điểm</option>`).join("")}</select></div>`).join("");
+const now=()=>new Date().toTimeString().slice(0,5);
+function renderAtt(){
+ const m=$("a-mode").value,d=$("a-date").value,L=m==="gv"?TEACHERS:STUDENTS;
+ const rec=n=>db.att.find(a=>a.d===d&&a.m===m&&a.n===n)||{};
+ let inn=0,out=0,abs=0;
+ $("a-tab").innerHTML="<tr><th>Họ tên</th><th>Có mặt</th><th>Ra về</th><th>Trạng thái</th></tr>"+L.map(n=>{const r=rec(n);
+  if(r.in)inn++;if(r.out)out++;if(r.abs)abs++;
+  const st=r.abs?'<span class="tag b">Vắng</span>':r.out?'<span class="tag o">Đã ra về</span>':r.in?'<span class="tag w">Đang có mặt</span>':'<span class="mut">Chưa điểm danh</span>';
+  return `<tr><td>${esc(n)}</td><td>${r.in?r.in:`<button class="btn s" data-a="in" data-n="${esc(n)}">Có mặt</button> <button class="btn s g" data-a="abs" data-n="${esc(n)}">Vắng</button>`}</td><td>${r.out?r.out:(r.in?`<button class="btn s" data-a="out" data-n="${esc(n)}">Ra về</button>`:"")}</td><td>${st}</td></tr>`}).join("");
+ $("a-sum").textContent=`Có mặt ${inn}/${L.length} · Đã ra về ${out} · Vắng ${abs}`;
+}
+$("a-mode").onchange=$("a-date").onchange=renderAtt;
+$("a-tab").onclick=e=>{const b=e.target.closest("button[data-a]");if(!b)return;
+ const m=$("a-mode").value,d=$("a-date").value,n=b.dataset.n;
+ if(d!==today)return msg("a-msg","Chỉ điểm danh được cho ngày hôm nay.");
+ let r=db.att.find(a=>a.d===d&&a.m===m&&a.n===n);if(!r){r={d,m,n};db.att.push(r)}
+ if(b.dataset.a==="in")r.in=now();else if(b.dataset.a==="abs")r.abs=1;else r.out=now();
+ save();msg("a-msg","",1);renderAtt();};
+const grade=v=>v>=4.5?"Xuất sắc":v>=3.5?"Tốt":v>=2.5?"Đạt":"Chưa đạt";
+$("e-send").onclick=()=>{
+ const grp=$("e-grp").value.trim(),by=$("e-by").value,who=$("e-who").value;
+ if(!grp)return msg("e-msg","Hãy nhập học sinh hoặc nhóm.");
+ if(by===who)return msg("e-msg","Người dự giờ và giáo viên được dự phải khác nhau.");
+ const sc=CRIT.map((_,i)=>+$("c"+i).value),avg=sc.reduce((a,b)=>a+b,0)/sc.length;
+ db.ev.push({id:Date.now(),by,who,date:$("e-date").value,slot:+$("e-slot").value,grp,sc,avg,note:$("e-note").value.trim()});
+ save();$("e-note").value="";$("e-grp").value="";msg("e-msg",`Đã lưu: ${avg.toFixed(1)}/5, loại ${grade(avg)}.`,1);renderEv();};
+function renderEv(){
+ const L=db.ev.slice().reverse();
+ $("e-list").innerHTML=L.length?L.map(x=>`<div class="item"><b>${esc(x.who)} · ${x.avg.toFixed(1)}/5 <span class="tag ${x.avg>=3.5?"o":x.avg>=2.5?"w":"b"}">${grade(x.avg)}</span></b><span class="mut">${fmt(x.date)}, ${SLOTS[x.slot]} · ${esc(x.grp)} · người dự: ${esc(x.by)}</span><div class="mut">${x.sc.join(" / ")}${x.note?" · "+esc(x.note):""}</div><div class="acts"><button class="btn s g" data-ev="${x.id}">Xóa</button></div></div>`).join(""):`<div class="empty">Chưa có phiếu nào. Điền phiếu ở khung bên trái.</div>`;
+}
+$("e-list").onclick=e=>{const b=e.target.closest("[data-ev]");if(!b)return;db.ev=db.ev.filter(x=>x.id!=b.dataset.ev);save();renderEv();};
+renderLeave();renderRoom();renderTT();renderAtt();renderEv();
+if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+</script>
+</body>
+</html>
